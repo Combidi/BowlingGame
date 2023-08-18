@@ -63,21 +63,7 @@ final class BowlingScoreTests: XCTestCase {
         
         XCTAssertEqual(score, 0)
     }
-    
-    func test_scoreForSingleRollKnockingDownOnePin() {
-        let score = BowlingGame
-            .determineScore(forRolls: [.pins(1)])
         
-        XCTAssertEqual(score, 1)
-    }
-
-    func test_scoreForSingleRollKnockingDownTwoPin() {
-        let score = BowlingGame
-            .determineScore(forRolls: [.pins(2)])
-        
-        XCTAssertEqual(score, 2)
-    }
-    
     func test_scoreForSingleRoll() {
         assertThatDetermineScore(forSingleRoll: .pins(1), equals: 1)
         assertThatDetermineScore(forSingleRoll: .pins(2), equals: 2)
