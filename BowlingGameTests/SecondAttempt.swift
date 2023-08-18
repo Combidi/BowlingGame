@@ -39,13 +39,16 @@ struct BowlingGame {
     }
     
     static func determineScore(forRolls rolls: [Roll]) -> Int {
-        if rolls.contains(where: { $0 == .gutter }) { return 0 }
-        return 1
+        guard let first = rolls.first else { return 0 }
+        switch first {
+        case .gutter: return 0
+        case let .pins(count): return count
+        }
     }
 }
 
 final class BowlingScoreTests: XCTestCase {
-
+    
     func test_scoreForOneGutterRoll() {
         let score = BowlingGame
             .determineScore(forRolls: [.gutter])
@@ -66,5 +69,12 @@ final class BowlingScoreTests: XCTestCase {
             .determineScore(forRolls: [.pins(1)])
         
         XCTAssertEqual(score, 1)
+    }
+
+    func test_scoreForSingleRollKnockingDownTwoPin() {
+        let score = BowlingGame
+            .determineScore(forRolls: [.pins(2)])
+        
+        XCTAssertEqual(score, 2)
     }
 }
