@@ -49,7 +49,8 @@ final class BowlingScoreTests: XCTestCase {
         XCTAssertEqual(score, 0)
     }
     
-    func test_scoreOneGutterRoll() {
+    func test_scoreGutterGame() {
+        let rolls = [BowlingGame.Roll](repeating: .gutter, count: 20)
         let score = BowlingGame
             .determineScore(forRolls: [.gutter])
         
