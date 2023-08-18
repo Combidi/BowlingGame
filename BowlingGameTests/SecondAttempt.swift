@@ -42,7 +42,7 @@ struct BowlingGame {
 
 final class BowlingScoreTests: XCTestCase {
 
-    func test_gutterGame() {
+    func test_scoreOneGutterRoll() {
         let score = BowlingGame
             .determineScore(forRolls: [.gutter])
         
