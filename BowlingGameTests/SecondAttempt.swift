@@ -32,21 +32,9 @@
 import XCTest
 
 struct BowlingGame {
-    
-    enum Roll: Equatable {
-        case gutter
-        case pins(Int)
-    }
-    
-    static func determineScore(forRolls rolls: [Roll]) -> Int {
-        var score = 0
-        for roll in rolls {
-            switch roll {
-            case .gutter: score += 0
-            case let .pins(count): score += count
-            }
-        }
-        return score
+        
+    static func determineScore(forRolls rolls: [Int]) -> Int {
+        rolls.reduce(0, +)
     }
 }
 
@@ -54,13 +42,13 @@ final class BowlingScoreTests: XCTestCase {
     
     func test_scoreForOneGutterRoll() {
         let score = BowlingGame
-            .determineScore(forRolls: [.gutter])
+            .determineScore(forRolls: [0])
         
         XCTAssertEqual(score, 0)
     }
     
     func test_scoreGutterGame() {
-        let rolls = [BowlingGame.Roll](repeating: .gutter, count: 20)
+        let rolls = [Int](repeating: 0, count: 20)
         let score = BowlingGame
             .determineScore(forRolls: rolls)
         
@@ -68,19 +56,19 @@ final class BowlingScoreTests: XCTestCase {
     }
         
     func test_scoreForSingleRoll() {
-        assertThatDetermineScore(forSingleRoll: .pins(1), equals: 1)
-        assertThatDetermineScore(forSingleRoll: .pins(2), equals: 2)
-        assertThatDetermineScore(forSingleRoll: .pins(3), equals: 3)
-        assertThatDetermineScore(forSingleRoll: .pins(4), equals: 4)
-        assertThatDetermineScore(forSingleRoll: .pins(5), equals: 5)
-        assertThatDetermineScore(forSingleRoll: .pins(6), equals: 6)
-        assertThatDetermineScore(forSingleRoll: .pins(7), equals: 7)
-        assertThatDetermineScore(forSingleRoll: .pins(8), equals: 8)
-        assertThatDetermineScore(forSingleRoll: .pins(9), equals: 9)
+        assertThatDetermineScore(forSingleRoll: 1, equals: 1)
+        assertThatDetermineScore(forSingleRoll: 2, equals: 2)
+        assertThatDetermineScore(forSingleRoll: 3, equals: 3)
+        assertThatDetermineScore(forSingleRoll: 4, equals: 4)
+        assertThatDetermineScore(forSingleRoll: 5, equals: 5)
+        assertThatDetermineScore(forSingleRoll: 6, equals: 6)
+        assertThatDetermineScore(forSingleRoll: 7, equals: 7)
+        assertThatDetermineScore(forSingleRoll: 8, equals: 8)
+        assertThatDetermineScore(forSingleRoll: 9, equals: 9)
     }
 
     func test_scroreForRollingOneTwentyTimes() {
-        let rolls = [BowlingGame.Roll](repeating: .pins(1), count: 20)
+        let rolls = [Int](repeating: 1, count: 20)
         let score = BowlingGame
             .determineScore(forRolls: rolls)
         
@@ -90,7 +78,7 @@ final class BowlingScoreTests: XCTestCase {
     // MARK: Helpers
     
     private func assertThatDetermineScore(
-        forSingleRoll roll: BowlingGame.Roll,
+        forSingleRoll roll: Int,
         equals expectedScore: Int,
         file: StaticString = #filePath,
         line: UInt = #line
