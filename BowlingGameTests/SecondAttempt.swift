@@ -77,4 +77,30 @@ final class BowlingScoreTests: XCTestCase {
         
         XCTAssertEqual(score, 2)
     }
+    
+    func test_scoreForSingleRoll() {
+        assertThatDetermineScore(forSingleRoll: .pins(1), equals: 1)
+        assertThatDetermineScore(forSingleRoll: .pins(2), equals: 2)
+        assertThatDetermineScore(forSingleRoll: .pins(3), equals: 3)
+        assertThatDetermineScore(forSingleRoll: .pins(4), equals: 4)
+        assertThatDetermineScore(forSingleRoll: .pins(5), equals: 5)
+        assertThatDetermineScore(forSingleRoll: .pins(6), equals: 6)
+        assertThatDetermineScore(forSingleRoll: .pins(7), equals: 7)
+        assertThatDetermineScore(forSingleRoll: .pins(8), equals: 8)
+        assertThatDetermineScore(forSingleRoll: .pins(9), equals: 9)
+    }
+
+    // MARK: Helpers
+    
+    private func assertThatDetermineScore(
+        forSingleRoll roll: BowlingGame.Roll,
+        equals expectedScore: Int,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) {
+        let score = BowlingGame
+            .determineScore(forRolls: [roll])
+        
+        XCTAssertEqual(score, expectedScore, file: file, line: line)
+    }
 }
