@@ -39,11 +39,14 @@ struct BowlingGame {
     }
     
     static func determineScore(forRolls rolls: [Roll]) -> Int {
-        guard let first = rolls.first else { return 0 }
-        switch first {
-        case .gutter: return 0
-        case let .pins(count): return count
+        var score = 0
+        for roll in rolls {
+            switch roll {
+            case .gutter: score += 0
+            case let .pins(count): score += count
+            }
         }
+        return score
     }
 }
 
@@ -76,6 +79,14 @@ final class BowlingScoreTests: XCTestCase {
         assertThatDetermineScore(forSingleRoll: .pins(9), equals: 9)
     }
 
+    func test_scroreForRollingOneTwentyTimes() {
+        let rolls = [BowlingGame.Roll](repeating: .pins(1), count: 20)
+        let score = BowlingGame
+            .determineScore(forRolls: rolls)
+        
+        XCTAssertEqual(score, 20)
+    }
+    
     // MARK: Helpers
     
     private func assertThatDetermineScore(
