@@ -101,6 +101,6 @@ final class BowlingScoreTests: XCTestCase {
         let score = BowlingGame
             .determineScore(forRolls: [roll])
         
-        XCTAssertEqual(score, expectedScore, file: file, line: line)
+        XCTAssertTrue(score == expectedScore, "Expected a score of \(expectedScore), got \(score) instead", file: file, line: line)
     }
 }
