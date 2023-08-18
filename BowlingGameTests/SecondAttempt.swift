@@ -50,15 +50,15 @@ final class BowlingScoreTests: XCTestCase {
     }
         
     func test_scoreForSingleRoll() {
-        assertThatDetermineScore(forSingleRoll: 1, equals: 1)
-        assertThatDetermineScore(forSingleRoll: 2, equals: 2)
-        assertThatDetermineScore(forSingleRoll: 3, equals: 3)
-        assertThatDetermineScore(forSingleRoll: 4, equals: 4)
-        assertThatDetermineScore(forSingleRoll: 5, equals: 5)
-        assertThatDetermineScore(forSingleRoll: 6, equals: 6)
-        assertThatDetermineScore(forSingleRoll: 7, equals: 7)
-        assertThatDetermineScore(forSingleRoll: 8, equals: 8)
-        assertThatDetermineScore(forSingleRoll: 9, equals: 9)
+        assertThatDetermineScore(forRolls: [1], equals: 1)
+        assertThatDetermineScore(forRolls: [2], equals: 2)
+        assertThatDetermineScore(forRolls: [3], equals: 3)
+        assertThatDetermineScore(forRolls: [4], equals: 4)
+        assertThatDetermineScore(forRolls: [5], equals: 5)
+        assertThatDetermineScore(forRolls: [6], equals: 6)
+        assertThatDetermineScore(forRolls: [7], equals: 7)
+        assertThatDetermineScore(forRolls: [8], equals: 8)
+        assertThatDetermineScore(forRolls: [9], equals: 9)
     }
 
     func test_scroreForRollingOneTwentyTimes() {
@@ -76,18 +76,6 @@ final class BowlingScoreTests: XCTestCase {
     ) {
         let score = BowlingGame
             .determineScore(forRolls: rolls)
-        
-        XCTAssertTrue(score == expectedScore, "Expected a score of \(expectedScore), got \(score) instead", file: file, line: line)
-    }
-    
-    private func assertThatDetermineScore(
-        forSingleRoll roll: Int,
-        equals expectedScore: Int,
-        file: StaticString = #filePath,
-        line: UInt = #line
-    ) {
-        let score = BowlingGame
-            .determineScore(forRolls: [roll])
         
         XCTAssertTrue(score == expectedScore, "Expected a score of \(expectedScore), got \(score) instead", file: file, line: line)
     }
