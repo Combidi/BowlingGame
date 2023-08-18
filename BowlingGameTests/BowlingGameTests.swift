@@ -51,12 +51,6 @@ final class Game {
     }
 }
 
-/*
- game loop is duplicated
- roll loop is duplicated
- 
- */
-
 final class BowlingGameTests: XCTestCase {
     func test_gutterGame() {
         let game = Game()
