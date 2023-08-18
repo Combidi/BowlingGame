@@ -41,18 +41,12 @@ struct BowlingGame {
 final class BowlingScoreTests: XCTestCase {
     
     func test_scoreForOneGutterRoll() {
-        let score = BowlingGame
-            .determineScore(forRolls: [0])
-        
-        XCTAssertEqual(score, 0)
+        assertThatDetermineScore(forRolls: [0], equals: 0)
     }
     
     func test_scoreGutterGame() {
-        let rolls = [Int](repeating: 0, count: 20)
-        let score = BowlingGame
-            .determineScore(forRolls: rolls)
-        
-        XCTAssertEqual(score, 0)
+        let rolls: [Int] = Array(repeating: 0, count: 20)
+        assertThatDetermineScore(forRolls: rolls, equals: 0)
     }
         
     func test_scoreForSingleRoll() {
@@ -68,14 +62,23 @@ final class BowlingScoreTests: XCTestCase {
     }
 
     func test_scroreForRollingOneTwentyTimes() {
-        let rolls = [Int](repeating: 1, count: 20)
-        let score = BowlingGame
-            .determineScore(forRolls: rolls)
-        
-        XCTAssertEqual(score, 20)
+        let rolls: [Int] = Array(repeating: 1, count: 20)
+        assertThatDetermineScore(forRolls: rolls, equals: 20)
     }
     
     // MARK: Helpers
+    
+    private func assertThatDetermineScore(
+        forRolls rolls: [Int],
+        equals expectedScore: Int,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) {
+        let score = BowlingGame
+            .determineScore(forRolls: rolls)
+        
+        XCTAssertTrue(score == expectedScore, "Expected a score of \(expectedScore), got \(score) instead", file: file, line: line)
+    }
     
     private func assertThatDetermineScore(
         forSingleRoll roll: Int,
