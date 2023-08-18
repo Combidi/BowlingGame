@@ -33,11 +33,15 @@ import XCTest
 
 struct BowlingGame {
     
-    enum Roll {
+    enum Roll: Equatable {
         case gutter
+        case pins(Int)
     }
     
-    static func determineScore(forRolls: [Roll]) -> Int { 0 }
+    static func determineScore(forRolls rolls: [Roll]) -> Int {
+        if rolls.contains(where: { $0 == .gutter }) { return 0 }
+        return 1
+    }
 }
 
 final class BowlingScoreTests: XCTestCase {
@@ -55,5 +59,12 @@ final class BowlingScoreTests: XCTestCase {
             .determineScore(forRolls: [.gutter])
         
         XCTAssertEqual(score, 0)
+    }
+    
+    func test_scoreForSingleRollKnockingDownOnePin() {
+        let score = BowlingGame
+            .determineScore(forRolls: [.pins(1)])
+        
+        XCTAssertEqual(score, 1)
     }
 }
