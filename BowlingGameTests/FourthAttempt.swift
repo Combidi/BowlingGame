@@ -13,7 +13,7 @@ final class FourthAttemptTests: XCTestCase {
     
     func test_rollOneGutterBall_deliversScoreOfZero() {
         let sut = BowlingGame()
-
+        
         sut.roll(pins: 0)
         
         XCTAssertEqual(sut.score(), 0)
@@ -21,28 +21,17 @@ final class FourthAttemptTests: XCTestCase {
     
     func test_rollOnlyGutterBalls_deliversScoreOfZero() {
         let sut = BowlingGame()
-
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
-        sut.roll(pins: 0)
+        
+        sut.roll(pins: 0, times: 20)
         
         XCTAssertEqual(sut.score(), 0)
+    }
+}
+
+private extension FourthAttemptTests.BowlingGame {
+    func roll(pins: Int, times: Int) {
+        (0..<times).forEach { _ in
+            roll(pins: pins)
+        }
     }
 }
