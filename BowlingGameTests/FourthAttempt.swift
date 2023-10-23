@@ -11,7 +11,7 @@ final class FourthAttemptTests: XCTestCase {
         func score() -> Int { 0 }
     }
     
-    func test_rollOneGutterBall_deliversScoreOnZero() {
+    func test_rollOneGutterBall_deliversScoreOfZero() {
         let sut = BowlingGame()
 
         sut.roll(pins: 0)
@@ -19,7 +19,7 @@ final class FourthAttemptTests: XCTestCase {
         XCTAssertEqual(sut.score(), 0)
     }
     
-    func test_rollOnlyGutterBalls_deliversScoreOnZero() {
+    func test_rollOnlyGutterBalls_deliversScoreOfZero() {
         let sut = BowlingGame()
 
         sut.roll(pins: 0)
