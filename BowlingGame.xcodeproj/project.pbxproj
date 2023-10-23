@@ -11,6 +11,7 @@
 		A608521F2A8E6DE000FFB550 /* BowlingGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A608521E2A8E6DE000FFB550 /* BowlingGameTests.swift */; };
 		A60852202A8E6DE000FFB550 /* BowlingGame.h in Headers */ = {isa = PBXBuildFile; fileRef = A60852142A8E6DDF00FFB550 /* BowlingGame.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A608522A2A8EA3BC00FFB550 /* SecondAttempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60852292A8EA3BC00FFB550 /* SecondAttempt.swift */; };
+		A630B3F42AD879F100F31D41 /* ThirdAttempt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630B3F32AD879F100F31D41 /* ThirdAttempt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		A60852192A8E6DE000FFB550 /* BowlingGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BowlingGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A608521E2A8E6DE000FFB550 /* BowlingGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingGameTests.swift; sourceTree = "<group>"; };
 		A60852292A8EA3BC00FFB550 /* SecondAttempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAttempt.swift; sourceTree = "<group>"; };
+		A630B3F32AD879F100F31D41 /* ThirdAttempt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdAttempt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				A608521E2A8E6DE000FFB550 /* BowlingGameTests.swift */,
 				A60852292A8EA3BC00FFB550 /* SecondAttempt.swift */,
+				A630B3F32AD879F100F31D41 /* ThirdAttempt.swift */,
 			);
 			path = BowlingGameTests;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A608521F2A8E6DE000FFB550 /* BowlingGameTests.swift in Sources */,
+				A630B3F42AD879F100F31D41 /* ThirdAttempt.swift in Sources */,
 				A608522A2A8EA3BC00FFB550 /* SecondAttempt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
